@@ -117,3 +117,15 @@ footer a:hover {
         font-size: 1.1rem;
     }
 }
+.project-card::after {
+    content: "Cliquez moi !";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #1f69b4;
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.75em;
+    border-radius: 6px;
+    opacity: 0.85;
+}
