@@ -169,3 +169,82 @@ footer a:hover {
     border-radius: 10px; /* Optional: adds rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
 }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  header {
+    background: #4e54c8;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  header h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-pic {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .section {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    color: #4e54c8;
+  }
+
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+
+  a {
+    color: #4e54c8;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #888;
+    font-size: 0.9rem;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+  }
