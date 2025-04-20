@@ -3,200 +3,61 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>My Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f7f9fc;
-            color: #333;
-            padding: 0;
-        }
 
-        header {
-            background: linear-gradient(to right, #4e54c8, #8f94fb);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
 
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none; /* Remove underline */
-            background-color: #fff;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            user-select: none; /* Prevent image selection */
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.05); /* Zoom effect */
-        }
-
-        .project-content {
-            padding: 1.5rem;
-            flex: 1;
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            color: #4e54c8;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            text-decoration: none; /* Remove underline */
-        }
-
-        .project-title:hover {
-            text-decoration: underline;
-        }
-
-        .project-description {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #e9ecf1;
-            color: #777;
-            margin-top: 3rem;
-            font-size: 1rem;
-        }
-
-        footer a {
-            color: #4e54c8;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1.1rem;
-            }
-
-            .projects-container {
-                padding: 1rem;
-            }
-
-            .project-card {
-                margin-bottom: 2rem;
-            }
-        }
-        
-        .myFace {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            height: auto;
-            width: 300px; /* Adjust to your preferred width */
-            border-radius: 10px; /* Optional: adds rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
-        }
-    </style>
+    <title>Simon Boudreau | Portfolio</title>
+    <link href="styles/styles.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>My Projects Portfolio</h1>
-        <p>Showcasing some of the cool things I've built</p>
+        <h1>Simon Boudreau</h1>
+        <p>Étudiant passionné en génie logiciel, explorant le monde de la programmation et de la créativité numérique</p>
+        <img class="myFace" src="projectHints/IMG_1474.jpg" alt="Photo de Simon Boudreau">
     </header>
-    <a href="projects/aboutMe/index.html" class="project-card full-row">
-        <img class="project-image myFace" src="projectHints/IMG_1474.jpg" alt="ME">
-        <div class="project-content">
-            <h2 class="project-title">About Me</h2>
-            <p class="project-description">
-                Une petite page que j'ai fait pour me présenter. J'y parle de mes passions, de mes projets et de mes aspirations. C'est un petit aperçu de qui je suis et de ce que j'aime faire.
-            </p>
-        </div>
-    </a>
 
-    <div class="projects-container">        
-
-        <a href="projects/demineur/index.html" class="project-card">
-            <img class="project-image" src="projectHints/Capture d’écran 2025-04-19 231702.png" alt="Minesweeper Game">
+    <div class="projects-container">
+        <a href="projects/aboutMe/index.html" class="project-card full-row">
             <div class="project-content">
-                <h2 class="project-title">Minesweeper</h2>
+                <h2 class="project-title">À propos de moi</h2>
                 <p class="project-description">
-                    Réalisé dans le cadre d’un laboratoire à l’ÉTS, ce projet revisite avec soin le classique jeu Démineur. J’y ai investi toute ma rigueur et ma créativité pour offrir une version fluide, fidèle et plaisante à jouer.
+                    Une page pour mieux me connaître : mes projets, mes passions, mes expériences et ce qui me motive dans le monde technologique.
                 </p>
             </div>
         </a>
 
+        <a href="projects/demineur/index.html" class="project-card">
+            <img class="project-image" src="projectHints/Capture d’écran 2025-04-19 231702.png" alt="Minesweeper">
+            <div class="project-content">
+                <h2 class="project-title">Minesweeper</h2>
+                <p class="project-description">
+                    Une version revisitée du jeu Démineur, conçue pour un laboratoire à l'ÉTS. Fidèle à l'original, mais repensée avec soin.
+                </p>
+            </div>
+        </a>
 
         <a href="https://nexbit.ca/geometrik" class="project-card">
-            <img class="project-image" src="projectHints/90ae6e8c-00c0-49db-9732-5465d2f16932.png" alt="Geometrik Project">
+            <img class="project-image" src="projectHints/90ae6e8c-00c0-49db-9732-5465d2f16932.png" alt="Geometrik">
             <div class="project-content">
                 <h2 class="project-title">Geometrik</h2>
                 <p class="project-description">
-                    Geometrik est un jeu d’action dynamique inspiré de "Vampire Survivors". Conçu en un mois à l’aide de la puissante bibliothèque PIXI 2D Ext, ce jeu propose une expérience visuelle intense et des mécaniques de jeu captivantes.
+                    Jeu d'action inspiré de Vampire Survivors, réalisé avec PIXI.js. Un mois de développement intensif pour créer un gameplay dynamique et accrocheur.
                 </p>
             </div>
         </a>
 
         <a href="projects/ricochetRobot/index.html" class="project-card">
-            <img class="project-image" src="projectHints/Capture d’écran 2025-04-19 234324.png" alt="Ricochet Robot Game">
+            <img class="project-image" src="projectHints/Capture d’écran 2025-04-19 234324.png" alt="Ricochet Robot">
             <div class="project-content">
                 <h2 class="project-title">Ricochet Robot</h2>
                 <p class="project-description">
-                    Un casse-tête stratégique où des robots doivent être déplacés avec ingéniosité sur une grille. Le défi : atteindre une cible avec le moins de mouvements possible. Idéal pour tester sa logique... et encore plus amusant entre amis !
+                    Un jeu de réflexion où stratégie et logique sont essentielles. Optimisez vos mouvements pour atteindre vos objectifs avec brio.
                 </p>
             </div>
         </a>
     </div>
 
     <footer>
-        <p>&copy; 2025 <a href="mailto:simon.bou194@gmail.com">Simon Boudreau</a>. All rights reserved.</p>
+        <p>&copy; 2025 <a href="mailto:simon.bou194@gmail.com">Simon Boudreau</a> | <a href="https://github.com/LeGhosdragon" target="_blank">GitHub</a></p>
     </footer>
 </body>
 </html>
