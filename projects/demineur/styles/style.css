@@ -1,0 +1,129 @@
+body
+{
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+*
+{
+    user-select: none;
+}
+
+.menuSelection
+{
+    position: relative;
+    width: 100%;
+    height:  100%;
+    display: flex;
+    margin: auto;
+    background-color:lightgray;
+    justify-content: space-evenly;
+}
+
+.btn-menu
+{
+    position: relative;
+    width: 100%;
+    height:  100%;
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+}
+
+[class*="box"] {
+    border: 10px;
+    border-style: solid;
+    border-color: white rgb(115, 115, 115) rgb(115, 115, 115) white; /* Ordre: top, right, bottom, left */
+    transition: border 0.2s ease; 
+}
+
+.ctn-display-box
+{
+    margin-top: 85vh;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 61px;
+    width: 370px;
+}
+
+[class*="nox"] {
+    text-align: center;
+    font-size: 2em;
+    height: 65%;
+    border: 10px;
+    border-style: solid;
+    background: black;
+    color: red;
+    font-family: Impact;
+    border-color: rgb(115, 115, 115) white white rgb(115, 115, 115); /* Ordre: top, right, bottom, left */
+}
+[class*="nox-ctn"] 
+{
+    width: 80%;
+}
+[class*="nox-timer"] 
+{
+    width: 27%;
+}
+
+.box-hov:hover {
+    border-color: rgb(115, 115, 115) white white rgb(115, 115, 115);
+}
+.display-nox
+{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#btn-play
+{
+    background: lightgray;
+    font-size: 5vh;   
+    margin-top: 20%;
+    width: 30%;
+    height: 10%;
+    font-weight: bold;
+}
+
+[id*="difficulte"]
+{
+    background: lightgray;
+    font-size: 2em;
+    margin-top: 15%;
+    width: 30%;
+    height: 10%;
+    font-weight: bold;
+}
+
+.grille
+{
+    display: grid;
+    grid-gap: 0px;
+}
+
+
+
+#tuile {
+    background: lightgray;
+    transition: background-color 0.3s ease;
+    font-family:Impact;
+}
+
+/* Hidden bomb style */
+.hide {
+    display: none !important;
+}
+
+/* Bomb default style */
+.bombe {
+    background-color: lightgray;
+}
+
+.vide {}
+
+.flag{}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page personnelle de Simon Boudreau</title>
+    <link href="style/style.css" rel="stylesheet">
+    <style>
+       
+    </style>
+</head>
+<body id="corps">
+
+    <img src="/projectHints/IMG_1474.jpg" 
+        id="ref-top"
+        alt="Photo de Simon Boudreau">
+
+    <header>
+        <h1>Simon Boudreau</h1> 
+        <p class="sous-contenu">
+            Étudiant au BAC en LOG à l'École de Technologie Supérieure, 
+            je suis passionné par la Programmation et je m'implique profondément 
+            à l’innovation technologique et au projets dont je fais partie.</p>
+    </header>
+
+    <section>
+        <div class="sous-contenu">
+            <h2>Horaire - Session Hiver 2025</h2>
+            <table>
+                <caption id="grille">Grille horaire</caption>
+                <tr>
+                    <td>-</td>
+                    <td>Lundi</td>
+                    <td>Mardi</td>
+                    <td>Mercredi</td>
+                    <td>Jeudi</td>
+                    <td>Vendredi</td>
+                </tr>
+                <tr>
+                    <td>AM</td>
+                    <td>TCH057</td>
+                    <td>GTI100</td>
+                    <td>TCH055</td>
+                    <td rowspan="2">TCH056</td>
+                    <td rowspan="2">TCH056</td>
+                </tr>
+                <tr>
+                    <td>PM</td>
+                    <td>TCH055</td>
+                    <td>TCH057</td>
+                    <td>GTI100</td>
+                </tr>
+                <tr>
+                    <td>Soir</td>
+                    <td colspan="5">-</td>
+                </tr>
+            </table>
+
+            <h2>Centres d'intérêt</h2>
+            <ul>
+                <li>Résolution d’énigmes</li>
+                <li>Programmation avec Arduino</li>
+                <ul>
+                    <li>Développement de jeux avec micro:bit</li>
+                    <li>Développement de jeux sur PlayDate</li>
+                </ul>
+            </ul>
+
+            <h2>Contact</h2> 
+            <ol>
+                <li><strong>Courriel :</strong> <a class="link" href="mailto:simon.boudreau.1@ens.etsmtl.ca" target="_blank">simon.boudreau.1@ens.etsmtl.ca</a></li>
+                <li><strong>GitHub :</strong> <a class="link" href="https://github.com/LeGhosdragon" target="_blank">https://github.com/LeGhosdragon</a></li>   
+            </ol>
+
+            <hr>
+
+            <h2>Écrivez-moi</h2> 
+            <form>
+                <label for="prénom">Prénom</label>
+                <input name="prénom" type="text" class="intrant" placeholder="Entrez votre prénom">    
+
+                <label for="nom">Nom</label>
+                <input name="nom" type="text" class="intrant" placeholder="Entrez votre nom">
+
+                <label for="message">Message</label>
+                <textarea name="message" class="intrant" placeholder="Insérez votre message" rows="8"></textarea>
+                
+                <button type="submit">Soumettre</button>
+                <button type="reset">Effacer</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <a class="ancrage" href="#ref-top">⬆ Retour au début</a>
+    </footer>
+
+</body>
+</html>
