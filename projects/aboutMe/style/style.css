@@ -248,3 +248,26 @@ body {
       grid-template-columns: 1fr;
     }
   }
+
+  .go-back-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2C3E50;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .go-back-btn:hover {
+    background-color: #34495E;
+    transform: scale(1.05);
+  }
+  
+  .go-back-btn:active {
+    background-color: #1A252F;
+  }
+  
