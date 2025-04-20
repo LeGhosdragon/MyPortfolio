@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Simulator</title>
+    <style>
+        canvas { border: 1px solid black; }
+        .controls { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <canvas id="simulationCanvas" width="1400" height="700"></canvas>
+    <div class="controls">
+        <button id="gravityBtn">Gravity</button>
+        <button id="frictionBtn">Friction</button>
+        <button id="moveBtn">DANCE FOR ME</button>
+        <button id="growBtn">Grow</button>
+        <button id="shrinkBtn">Shrink</button>
+        <button id="teleportUpBtn">TELE_UP</button>
+        <button id="teleportDownBtn">TELE_DOWN</button>
+        <button id="teleportRightBtn">TELE_RIGHT</button>
+        <button id="teleportLeftBtn">TELE_LEFT</button>
+        <button id="accelerateBtn">Accelerate</button>
+        <button id="multiplyBtn">MULTIPLY</button>
+        <input type="range" id="sizeSlider" min="1" max="500" value="25" step="0.1" />
+    </div>
+
+    <script>
+        const canvas = document.getElementById("simulationCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const LARGEUR = 1400;
+        const HAUTEUR = 700;
+        let ballesList = [];
+        let mouseDown = false;
+        let selectedBall = null; // To track the selected ball for dragging
+
+        let gravity = false;
+        let friction = false;
+
+        class Ball {
+            constructor(posX, posY, vitesseX, vitesseY, tailleX, tailleY, couleur) {
+                this.posX = posX;
+                this.posY = posY;
+                this.vitesseX = vitesseX;
+                this.vitesseY = vitesseY;
+                this.tailleX = tailleX;
+                this.tailleY = tailleY;
+                this.couleur = couleur;
+                this.isSelected = false;
+            }
+
+            update(context) {
+                // Apply gravity if enabled
+                if (gravity) {
+                    this.vitesseY += 0.1; // Gravity acceleration
+                }
+
+                // Apply friction if enabled
+                if (friction) {
+                    this.vitesseX *= 0.99; // Friction on X axis
+                    this.vitesseY *= 0.99; // Friction on Y axis
+                }
+
+                // Update position based on velocity
+                this.posX += this.vitesseX;
+                this.posY += this.vitesseY;
+
+                // Collision with canvas boundaries
+                if (this.posX <= 0 + this.tailleX / 2) {
+                    this.posX = 0 + this.tailleX / 2;
+                    this.vitesseX *= -1; // Bounce horizontally
+                } else if (this.posX >= LARGEUR - this.tailleX / 2) {
+                    this.posX = LARGEUR - this.tailleX / 2;
+                    this.vitesseX *= -1; // Bounce horizontally
+                }
+
+                if (this.posY <= 0 + this.tailleY / 2) {
+                    this.posY = 0 + this.tailleY / 2;
+                    this.vitesseY *= -1; // Bounce vertically
+                } else if (this.posY >= HAUTEUR - this.tailleY / 2) {
+                    this.posY = HAUTEUR - this.tailleY / 2;
+                    this.vitesseY *= -1; // Bounce vertically
+                }
+
+                // Draw the ball
+                context.fillStyle = this.couleur;
+                context.beginPath();
+                context.arc(this.posX, this.posY, this.tailleX / 2, 0, Math.PI * 2);
+                context.fill();
+            }
+
+            collisionWith(otherBall) {
+                const dx = otherBall.posX - this.posX;
+                const dy = this.posY - otherBall.posY;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const distMin = (this.tailleX / 2) + (otherBall.tailleX / 2);
+
+                return dist <= distMin;
+            }
+
+            isPointInside(x, y) {
+                const dist = Math.sqrt(Math.pow(this.posX - x, 2) + Math.pow(this.posY - y, 2));
+                return dist <= this.tailleX / 2;
+            }
+        }
+
+        // Create balls
+        for (let i = 0; i < 5; i++) {
+            const randomX = Math.random() * 1000 + 100;
+            const randomY = Math.random() * 1000 + 100;
+            const randomVitesseX = Math.random() * 4 - 2;
+            const randomVitesseY = Math.random() * 4 - 2;
+            const randomTaille = Math.random() * 50 + 10;
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            const ball = new Ball(randomX, randomY, randomVitesseX, randomVitesseY, randomTaille, randomTaille, randomColor);
+            ballesList.push(ball);
+        }
+
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, LARGEUR, HAUTEUR);
+
+            // Update and draw all balls
+            ballesList.forEach(ball => {
+                ball.update(ctx);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Event listeners for mouse interaction (click and drag)
+        canvas.addEventListener('mousedown', (event) => {
+            const mouseX = event.offsetX;
+            const mouseY = event.offsetY;
+
+            // Check if any ball is clicked
+            ballesList.forEach(ball => {
+                if (ball.isPointInside(mouseX, mouseY)) {
+                    selectedBall = ball;
+                    selectedBall.isSelected = true; // Mark as selected for dragging
+                    selectedBall.vitesseX = 0; // Stop any current movement
+                    selectedBall.vitesseY = 0;
+                }
+            });
+        });
+
+        canvas.addEventListener('mousemove', (event) => {
+            if (selectedBall && selectedBall.isSelected) {
+                selectedBall.posX = event.offsetX;
+                selectedBall.posY = event.offsetY;
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            if (selectedBall) {
+                selectedBall.isSelected = false;
+                selectedBall = null; // Deselect the ball
+            }
+        });
+
+        // Button event listeners
+        document.getElementById('gravityBtn').addEventListener('click', () => {
+            gravity = !gravity;
+            console.log("Gravity:", gravity);
+        });
+
+        document.getElementById('frictionBtn').addEventListener('click', () => {
+            friction = !friction;
+            console.log("Friction:", friction);
+        });
+
+        document.getElementById('moveBtn').addEventListener('click', () => {
+            ballesList.forEach((ball) => {
+                ball.vitesseX = Math.random() * 10 - 5;
+                ball.vitesseY = Math.random() * 10 - 5;
+            });
+        });
+
+        document.getElementById('growBtn').addEventListener('click', () => {
+            ballesList.forEach((ball) => {
+                ball.tailleX *= 1.1;
+                ball.tailleY *= 1.1;
+            });
+        });
+
+        document.getElementById('shrinkBtn').addEventListener('click', () => {
+            ballesList.forEach((ball) => {
+                ball.tailleX *= 0.9;
+                ball.tailleY *= 0.9;
+            });
+        });
+
+        document.getElementById('sizeSlider').addEventListener('input', (event) => {
+            const size = event.target.value;
+            ballesList.forEach((ball) => {
+                ball.tailleX = size;
+                ball.tailleY = size;
+            });
+        });
+    </script>
+</body>
+</html>
